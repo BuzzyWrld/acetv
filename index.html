@@ -56,8 +56,8 @@ body{
 
 /* TV flair overlays: grain + CRT scanlines + vignette */
 .fx{position:fixed;inset:0;pointer-events:none;z-index:1000;}
-.fx-grain{opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain .5s steps(1) infinite;}
-.fx-scan{background:repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.16) 3px, rgba(0,0,0,0) 4px);opacity:0.5;mix-blend-mode:multiply;}
+.fx-grain{opacity:0.04;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.fx-scan{background:repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.16) 3px, rgba(0,0,0,0) 4px);opacity:0.42;mix-blend-mode:multiply;}
 .fx-vig{background:radial-gradient(ellipse 100% 100% at 50% 50%, transparent 55%, rgba(0,0,0,0.55) 100%);}
 @keyframes grain{0%,100%{transform:translate(0,0)}20%{transform:translate(-2%,1%)}40%{transform:translate(2%,-2%)}60%{transform:translate(-1%,2%)}80%{transform:translate(2%,1%)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
@@ -71,12 +71,11 @@ body{
 #intro{position:fixed;inset:0;z-index:9999;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden;}
 #intro.off{animation:introOut .55s ease forwards;}
 @keyframes introOut{to{opacity:0;visibility:hidden}}
-.intro-static{position:absolute;inset:0;opacity:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E");animation:stat .9s steps(2) forwards;}
-@keyframes stat{0%{opacity:.22}25%{opacity:.06}50%{opacity:.2}75%{opacity:.04}100%{opacity:0}}
-.intro-line{position:absolute;left:0;right:0;top:50%;height:2px;background:var(--green);box-shadow:0 0 50px 6px var(--green);transform:scaleX(0);transform-origin:center;animation:lineOn 1.5s cubic-bezier(.7,0,.3,1) .25s forwards;}
+.intro-static{position:absolute;inset:0;z-index:1;opacity:.2;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E");}
+.intro-line{position:absolute;left:0;right:0;top:50%;height:2px;z-index:2;background:var(--green);box-shadow:0 0 50px 6px var(--green);transform:scaleX(0);transform-origin:center;animation:lineOn 1.5s cubic-bezier(.7,0,.3,1) .25s forwards;}
 @keyframes lineOn{0%{transform:scaleX(0);height:2px;top:50%}28%{transform:scaleX(1);height:2px;top:50%;opacity:1}62%{height:2px;opacity:1;top:50%}80%{height:100vh;top:0;opacity:.1}100%{height:100vh;top:0;opacity:0}}
 .intro-stack{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;gap:18px;}
-.intro-logo{font-family:var(--fd);font-size:clamp(64px,10vw,128px);letter-spacing:.04em;color:var(--white);opacity:0;animation:logoOn .7s ease 1s forwards, flick .1s steps(2) 1.05s 3;}
+.intro-logo{font-family:var(--fd);font-size:clamp(64px,10vw,128px);letter-spacing:.04em;color:var(--white);opacity:0;animation:logoOn .6s ease 1.2s forwards, flick .1s steps(2) 1.25s 3;}
 .intro-logo span{color:var(--red);}
 .intro-tally{display:flex;align-items:center;gap:9px;font-family:var(--fm);font-size:11px;letter-spacing:0.3em;color:var(--red2);border:1px solid var(--red-bd);background:var(--red-mut);padding:6px 14px;border-radius:20px;opacity:0;animation:logoOn .5s ease 1.25s forwards;}
 .intro-tally .d{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red);animation:blink 1s infinite;}
@@ -161,7 +160,7 @@ nav .in{display:flex;align-items:center;justify-content:space-between;height:62p
 
 /* MISSION */
 .mission{background:linear-gradient(135deg,#00E676,#00c765);padding:62px 0;position:relative;overflow:hidden;}
-.mission::before{content:'CONTEXT OVER\A NOISE';white-space:pre;position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;font-family:var(--fd);font-size:128px;line-height:0.82;letter-spacing:0.05em;color:rgba(6,43,22,0.08);padding-left:44px;overflow:hidden;}
+.mission::before{content:"WE'RE ALL\A WE GOT";white-space:pre;position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;font-family:var(--fd);font-size:128px;line-height:0.82;letter-spacing:0.05em;color:rgba(6,43,22,0.08);padding-left:44px;overflow:hidden;}
 .mission::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0,transparent 3px,rgba(6,43,22,0.05) 4px,transparent 5px);}
 .mission-in{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center;}
 .mission-q{font-family:var(--fd);font-size:46px;letter-spacing:0.03em;line-height:1.04;color:#062B16;}
@@ -302,6 +301,31 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:60px 0
   .f-top{grid-template-columns:1fr 1fr;}
   .f-bot{flex-direction:column;gap:10px;text-align:center;}
 }
+
+/* PHONE: declutter nav + center stacked email forms */
+@media(max-width:560px){
+  .logo{font-size:23px;gap:7px;}
+  .logo .sub{display:none;}                 /* drop "Sports" badge on phone, keep AceTV+ */
+  .nlinks{gap:13px;}
+  .nlinks a{font-size:11px;letter-spacing:0.07em;}
+  .nwatch{padding:7px 13px;}
+  /* stack the capture + newsletter forms so the button no longer hangs right */
+  .capture,.nl-form{flex-direction:column;gap:10px;}
+  .capture input,.nl-form input{border-right:1px solid var(--border);border-radius:2px;text-align:center;}
+  .capture button,.nl-form button{width:100%;border-radius:2px;}
+  /* center mission on phone + keep the background watermark from clipping */
+  .mission-in{text-align:center;}
+  .mission-q{font-size:40px;}
+  .mission-b{margin:0 auto;}
+  .mission::before{font-size:58px;line-height:0.9;padding-left:0;align-items:center;text-align:center;}
+  /* tighten vertical rhythm between sections on phone */
+  .feed,.deck,.network,.press{padding:54px 0;}
+  .quotes{padding:0 0 54px;}
+  .nl{padding:58px 0;}
+  .faq{padding:0 0 54px;}
+  .mission{padding:50px 0;}
+  footer{padding:46px 0 28px;}
+}
 </style>
 </head>
 <body class="lock">
@@ -310,7 +334,9 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:60px 0
 <div id="intro">
   <div class="intro-static"></div>
   <div class="intro-stack">
+    <!-- DORMANT: "ON AIR" indicator. Re-enable when AceTV+ is actually broadcasting live.
     <div class="intro-tally"><span class="d"></span>ON AIR</div>
+    -->
     <div class="intro-logo">AceTV<span>+</span></div>
   </div>
   <div class="intro-line"></div>
@@ -408,7 +434,6 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:60px 0
 <div class="mission-b">
 <p>AceTV+ exists as a response to the negativity that infected sports talk. We don't kill with kindness. We smother with love and laughter and punish with knowledge.</p>
 <p>We don't draw lines in the sand of fandom. We show the lines that already exist and look at them straight. I might tell you a joke, but I'll never tell you a lie.</p>
-<a href="#deck" class="btn-dark">Join The Deck →</a>
 </div>
 </div></div></section>
 
@@ -597,12 +622,13 @@ window.addEventListener('scroll',function(){
 });
 
 // reveal on scroll, with failsafe so nothing stays hidden
-var reveals=document.querySelectorAll('.cardF,.cardS,.tier,.quote,.net-card,.faq-item,.press-in');
-function show(el){el.style.opacity='1';el.style.transform='translateY(0)';}
+// TV "signal focus" reveal: blurry + lifted, snapping sharp as it enters frame
+var reveals=document.querySelectorAll('.shead,.cardF,.cardS,.tier,.quote,.net-card,.faq-item,.press-in,.mission-q,.mission-b,.deck-grid>div,.nl-in,.net-head,.viewall');
+function show(el){el.style.opacity='1';el.style.transform='translateY(0)';el.style.filter='blur(0)';}
 if('IntersectionObserver' in window){
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target);}});},{threshold:0.06});
-  reveals.forEach(function(el){el.style.opacity='0';el.style.transform='translateY(22px)';el.style.transition='opacity .55s ease, transform .55s ease';io.observe(el);});
-  setTimeout(function(){reveals.forEach(show);},3000);
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target);}});},{threshold:0.08});
+  reveals.forEach(function(el){el.style.opacity='0';el.style.transform='translateY(28px)';el.style.filter='blur(10px)';el.style.transition='opacity .6s ease, transform .65s cubic-bezier(.16,1,.3,1), filter .6s ease';io.observe(el);});
+  setTimeout(function(){reveals.forEach(show);},3200);
 } else { reveals.forEach(show); }
 </script>
 </body>
