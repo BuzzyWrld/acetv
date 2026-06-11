@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AceTV+ Sports — Love the Game, Not the Noise</title>
+<meta name="description" content="Game recaps, sports history, and honest takes that care about the context behind the numbers. No fandom wars. No agenda. Part of the AceTV+ network. We're all we got.">
+<link rel="canonical" href="https://acetv.plus/sports">
+<meta property="og:title" content="AceTV+ Sports — Love the Game, Not the Noise">
+<meta property="og:description" content="Recaps, history, and honest takes with context over tribalism. Part of the AceTV+ network.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://acetv.plus/sports">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Google Tag Manager (placeholder — swap GTM-XXXXXXX) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"AceTV+","url":"https://acetv.plus","description":"A media network for people who love the game and the culture. Sports-first, expanding into screen and comedy.","sameAs":["https://youtube.com/@acetv","https://instagram.com/acetv","https://tiktok.com/@acetv"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is AceTV+ Sports?","acceptedAnswer":{"@type":"Answer","text":"AceTV+ Sports is a digital sports media brand covering game recaps, sports history, and honest analysis focused on the context behind the numbers rather than fandom-driven debate. It is the flagship vertical of the AceTV+ network."}},
+{"@type":"Question","name":"How is AceTV+ different from ESPN or Barstool?","acceptedAnswer":{"@type":"Answer","text":"AceTV+ Sports refuses the manufactured tribal debate format common in legacy sports media. It loves the game more than the argument, prioritizing history, honest takes, and community over fan-war content."}},
+{"@type":"Question","name":"Is AceTV+ free?","acceptedAnswer":{"@type":"Answer","text":"AceTV+ content is free across YouTube, TikTok, and Instagram. An optional membership called Ace+ offers early access, exclusive episodes, and a community for a low monthly cost."}}
+]}
+</script>
+
+<style>
+:root{
+  --black:#070707; --surface:#111311; --surface2:#181b18; --surface3:#202420;
+  --green:#00E676; --green2:#5CFFB0; --green-mut:rgba(0,230,118,0.14); --green-bd:rgba(0,230,118,0.32);
+  --red:#E8231A; --red2:#FF6B63; --red-mut:rgba(232,35,26,0.14); --red-bd:rgba(232,35,26,0.3);
+  --yellow:#FFD600; --yellow-mut:rgba(255,214,0,0.1); --yellow-bd:rgba(255,214,0,0.3);
+  --gold:#F5A623; --white:#F2F2EF; --muted:rgba(242,242,239,0.5); --faint:rgba(242,242,239,0.16);
+  --border:rgba(242,242,239,0.1);
+  --fd:'Bebas Neue',sans-serif; --fb:'DM Sans',sans-serif; --fm:'IBM Plex Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -5%, rgba(0,230,118,0.06), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 90% 30%, rgba(0,230,118,0.035), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 5% 70%, rgba(232,35,26,0.03), transparent 55%),
+    #070707;
+  color:var(--white);font-family:var(--fb);font-size:16px;line-height:1.6;overflow-x:hidden;
+}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--black);}::-webkit-scrollbar-thumb{background:var(--green);border-radius:2px;}
+::selection{background:var(--green);color:#062B16;}
+.container{max-width:1180px;margin:0 auto;padding:0 24px;}
+.disp{font-family:var(--fd);letter-spacing:0.02em;}
+.mono{font-family:var(--fm);}
+
+/* TV flair overlays: grain + CRT scanlines + vignette */
+.fx{position:fixed;inset:0;pointer-events:none;z-index:1000;}
+.fx-grain{opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain .5s steps(1) infinite;}
+.fx-scan{background:repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.16) 3px, rgba(0,0,0,0) 4px);opacity:0.5;mix-blend-mode:multiply;}
+.fx-vig{background:radial-gradient(ellipse 100% 100% at 50% 50%, transparent 55%, rgba(0,0,0,0.55) 100%);}
+@keyframes grain{0%,100%{transform:translate(0,0)}20%{transform:translate(-2%,1%)}40%{transform:translate(2%,-2%)}60%{transform:translate(-1%,2%)}80%{transform:translate(2%,1%)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,230,118,0.4)}50%{box-shadow:0 0 0 9px rgba(0,230,118,0)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
+.fade{opacity:0;animation:fadeUp .7s ease forwards;}
+.d1{animation-delay:.1s}.d2{animation-delay:.26s}.d3{animation-delay:.42s}.d4{animation-delay:.58s}
+
+/* ===== INTRO: broadcast power-on ===== */
+#intro{position:fixed;inset:0;z-index:9999;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+#intro.off{animation:introOut .55s ease forwards;}
+@keyframes introOut{to{opacity:0;visibility:hidden}}
+.intro-static{position:absolute;inset:0;opacity:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E");animation:stat .9s steps(2) forwards;}
+@keyframes stat{0%{opacity:.22}25%{opacity:.06}50%{opacity:.2}75%{opacity:.04}100%{opacity:0}}
+.intro-line{position:absolute;left:0;right:0;top:50%;height:2px;background:var(--green);box-shadow:0 0 50px 6px var(--green);transform:scaleX(0);transform-origin:center;animation:lineOn 1.5s cubic-bezier(.7,0,.3,1) .25s forwards;}
+@keyframes lineOn{0%{transform:scaleX(0);height:2px;top:50%}28%{transform:scaleX(1);height:2px;top:50%;opacity:1}62%{height:2px;opacity:1;top:50%}80%{height:100vh;top:0;opacity:.1}100%{height:100vh;top:0;opacity:0}}
+.intro-stack{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;gap:18px;}
+.intro-logo{font-family:var(--fd);font-size:clamp(64px,10vw,128px);letter-spacing:.04em;color:var(--white);opacity:0;animation:logoOn .7s ease 1s forwards, flick .1s steps(2) 1.05s 3;}
+.intro-logo span{color:var(--red);}
+.intro-tally{display:flex;align-items:center;gap:9px;font-family:var(--fm);font-size:11px;letter-spacing:0.3em;color:var(--red2);border:1px solid var(--red-bd);background:var(--red-mut);padding:6px 14px;border-radius:20px;opacity:0;animation:logoOn .5s ease 1.25s forwards;}
+.intro-tally .d{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red);animation:blink 1s infinite;}
+@keyframes logoOn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+@keyframes flick{0%,100%{opacity:1}50%{opacity:.35}}
+body.lock{overflow:hidden;height:100vh;}
+
+.eyebrow{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:0.32em;text-transform:uppercase;color:var(--green);}
+.shead{display:flex;align-items:center;gap:16px;margin-bottom:40px;}
+.shead .lab{font-family:var(--fm);font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
+.shead .ln{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+.tag{display:inline-block;border:1px solid var(--green-bd);color:var(--green2);font-family:var(--fm);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;padding:4px 10px;border-radius:2px;background:var(--green-mut);}
+.divider{border:none;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:0.22;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:120;background:rgba(7,7,7,0.86);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:border-color .3s;}
+nav .in{display:flex;align-items:center;justify-content:space-between;height:62px;}
+.logo{font-family:var(--fd);font-size:27px;letter-spacing:0.04em;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:9px;}
+.logo .plus{color:var(--red);}
+.logo .sub{font-family:var(--fm);font-size:10px;letter-spacing:0.25em;color:var(--green);border:1px solid var(--green-bd);padding:2px 6px;border-radius:2px;text-transform:uppercase;}
+.nlinks{display:flex;align-items:center;gap:26px;list-style:none;}
+.nlinks a{font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nlinks a:hover{color:var(--white);}
+.nwatch{background:var(--green);color:#062B16!important;padding:8px 18px;border-radius:2px;font-weight:700!important;display:inline-flex;align-items:center;gap:7px;transition:background .2s!important;}
+.nwatch:hover{background:var(--green2);}
+
+/* TICKER */
+.tick{background:var(--green);overflow:hidden;height:32px;display:flex;align-items:center;margin-top:62px;}
+.tick-tr{display:flex;white-space:nowrap;animation:ticker 32s linear infinite;}
+.tick-it{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#062B16;padding:0 38px;display:flex;align-items:center;gap:9px;}
+.tick-it .live{width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.2s infinite;}
+
+/* HERO (centered) */
+.hero{min-height:90vh;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;padding:70px 0 56px;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(242,242,239,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(242,242,239,0.025) 1px,transparent 1px);background-size:62px 62px;mask-image:radial-gradient(ellipse 80% 70% at 50% 45%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 45%,#000 30%,transparent 80%);}
+.hero-glow{position:absolute;width:680px;height:680px;border-radius:50%;background:radial-gradient(circle,rgba(0,230,118,0.12),transparent 65%);top:8%;left:50%;transform:translateX(-50%);filter:blur(20px);}
+.hero-c{position:relative;z-index:2;max-width:860px;padding:0 24px;}
+.network-chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:26px;border:1px solid var(--border);padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.02);}
+.network-chip .pdot{color:var(--red);font-weight:700;}
+.hero h1{font-family:var(--fd);font-size:clamp(72px,10vw,150px);line-height:0.88;letter-spacing:0.02em;margin-bottom:24px;text-shadow:0 0 60px rgba(0,230,118,0.15);}
+.hero h1 .g{color:var(--green);}
+.hero-sub{font-size:18px;font-weight:300;color:var(--muted);max-width:600px;margin:0 auto 36px;line-height:1.7;}
+.hero-sub strong{color:var(--white);font-weight:500;}
+.capture{display:flex;max-width:480px;margin:0 auto;}
+.capture input{flex:1;background:var(--surface2);border:1px solid var(--border);border-right:none;color:var(--white);font-family:var(--fb);font-size:14px;padding:15px 18px;outline:none;border-radius:2px 0 0 2px;transition:border-color .2s;}
+.capture input::placeholder{color:var(--muted);}
+.capture input:focus{border-color:var(--green);}
+.capture button{background:var(--green);color:#062B16;border:none;font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:15px 26px;cursor:pointer;border-radius:0 2px 2px 0;white-space:nowrap;transition:background .2s;animation:pulse 2.6s infinite;}
+.capture button:hover{background:var(--green2);animation:none;}
+.cap-sub{font-family:var(--fm);font-size:11px;color:var(--muted);margin-top:12px;letter-spacing:0.03em;}
+
+/* FEED */
+.feed{padding:90px 0;}
+.feed-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;}
+.cardF{background:linear-gradient(165deg,var(--surface2),var(--surface));border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;transition:border-color .25s,transform .25s,box-shadow .25s;grid-row:span 2;color:var(--white);text-decoration:none;display:block;}
+.cardF:hover{border-color:var(--green-bd);transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,0.4),0 0 30px rgba(0,230,118,0.06);}
+.cardF-img{aspect-ratio:16/9;background:linear-gradient(135deg,#06160e,#0a2a1a 50%,#0c1410);display:flex;align-items:center;justify-content:center;position:relative;}
+.cardF-img::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0,transparent 2px,rgba(0,0,0,0.12) 3px,transparent 4px);opacity:.5;}
+.cardF-img .pl{width:64px;height:64px;background:rgba(0,230,118,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .2s;position:relative;z-index:2;box-shadow:0 0 30px rgba(0,230,118,0.5);}
+.cardF:hover .pl{transform:scale(1.1);}
+.cardF-img .pl svg{width:24px;height:24px;fill:#062B16;margin-left:4px;}
+.cardF-img .badge{position:absolute;top:14px;left:14px;z-index:2;background:rgba(7,7,7,0.7);backdrop-filter:blur(4px);border:1px solid var(--green-bd);color:var(--green2);font-family:var(--fm);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:4px 9px;border-radius:2px;}
+.cardF-b{padding:24px;}
+.cmeta{display:flex;align-items:center;gap:10px;margin-bottom:11px;}
+.ctype{font-family:var(--fm);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--green);}
+.cdot{width:3px;height:3px;background:var(--faint);border-radius:50%;}
+.cdate{font-family:var(--fm);font-size:9px;color:var(--muted);}
+.cardF h3{font-family:var(--fd);font-size:30px;letter-spacing:0.03em;line-height:1.05;margin-bottom:10px;}
+.cardF p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px;}
+.cfoot{display:flex;justify-content:space-between;align-items:center;}
+.crt{font-family:var(--fm);font-size:10px;color:var(--muted);}
+.clink{font-family:var(--fm);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--green);text-decoration:none;display:flex;gap:6px;transition:gap .2s;}
+.clink:hover{gap:11px;}
+.cardS{background:linear-gradient(165deg,var(--surface2),var(--surface));border:1px solid var(--border);border-radius:8px;padding:20px;cursor:pointer;transition:border-color .25s,transform .2s;display:flex;gap:16px;color:var(--white);text-decoration:none;}
+.cardS:hover{border-color:var(--green-bd);transform:translateY(-2px);}
+.cardS .num{font-family:var(--fd);font-size:38px;color:var(--faint);line-height:1;width:42px;flex-shrink:0;}
+.cardS h4{font-size:14px;font-weight:600;line-height:1.4;margin-bottom:6px;}
+.cardS .m{font-family:var(--fm);font-size:9px;color:var(--muted);letter-spacing:0.1em;}
+.viewall{margin-top:30px;text-align:center;}
+.ghost{display:inline-flex;align-items:center;gap:10px;background:transparent;border:1px solid var(--border);color:var(--muted);font-family:var(--fm);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:13px 28px;text-decoration:none;border-radius:2px;cursor:pointer;transition:border-color .2s,color .2s;}
+.ghost:hover{border-color:var(--green);color:var(--white);}
+
+/* MISSION */
+.mission{background:linear-gradient(135deg,#00E676,#00c765);padding:62px 0;position:relative;overflow:hidden;}
+.mission::before{content:'CONTEXT OVER\A NOISE';white-space:pre;position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;font-family:var(--fd);font-size:128px;line-height:0.82;letter-spacing:0.05em;color:rgba(6,43,22,0.08);padding-left:44px;overflow:hidden;}
+.mission::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0,transparent 3px,rgba(6,43,22,0.05) 4px,transparent 5px);}
+.mission-in{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center;}
+.mission-q{font-family:var(--fd);font-size:46px;letter-spacing:0.03em;line-height:1.04;color:#062B16;}
+.mission-b{font-size:15px;color:rgba(6,43,22,0.82);line-height:1.7;}
+.mission-b p{margin-bottom:14px;}
+.btn-dark{display:inline-flex;align-items:center;gap:9px;background:#062B16;color:var(--green);border:none;font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:13px 26px;border-radius:2px;cursor:pointer;text-decoration:none;transition:opacity .2s;}
+.btn-dark:hover{opacity:0.88;}
+
+/* DECK */
+.deck{padding:92px 0;}
+.deck-grid{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:start;}
+.deck h2{font-family:var(--fd);font-size:clamp(44px,5.5vw,72px);line-height:0.95;margin-bottom:18px;}
+.deck h2 .g{color:var(--green);}
+.deck-body{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:26px;max-width:460px;}
+.perks{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:30px;}
+.perks li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--white);}
+.pic{width:20px;height:20px;background:var(--green-mut);border:1px solid var(--green-bd);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.pic svg{width:10px;height:10px;stroke:var(--green);fill:none;}
+.btn-green{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:#062B16;border:none;font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:14px 28px;border-radius:2px;cursor:pointer;text-decoration:none;transition:background .2s;box-shadow:0 0 24px rgba(0,230,118,0.18);}
+.btn-green:hover{background:var(--green2);}
+.tiers{display:flex;flex-direction:column;gap:13px;}
+.tier{background:linear-gradient(165deg,var(--surface2),var(--surface));border:1px solid var(--border);border-radius:8px;padding:22px;position:relative;transition:border-color .2s;}
+.tier:hover{border-color:var(--green-bd);}
+.tier.feat{background:linear-gradient(165deg,rgba(0,230,118,0.08),var(--surface2));border-color:var(--green);}
+.tier-badge{position:absolute;top:-10px;left:20px;background:var(--green);color:#062B16;font-family:var(--fm);font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:3px 10px;border-radius:2px;}
+.tier-h{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:11px;}
+.tier-name{font-family:var(--fd);font-size:22px;letter-spacing:0.04em;}
+.tier-price{text-align:right;}
+.tier-amt{font-family:var(--fd);font-size:28px;}
+.tier-per{font-family:var(--fm);font-size:10px;color:var(--muted);}
+.tier ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.tier ul li{font-size:12px;color:var(--muted);display:flex;gap:8px;}
+.tier ul li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:6px;}
+.tier ul li.on{color:var(--white);}
+.waitnote{font-family:var(--fm);font-size:10px;color:var(--green2);letter-spacing:0.05em;margin-top:14px;text-align:center;}
+
+/* QUOTES */
+.quotes{padding:0 0 92px;}
+.qgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.quote{background:linear-gradient(165deg,var(--surface2),var(--surface));border:1px solid var(--border);border-left:3px solid var(--green);border-radius:8px;padding:20px;}
+.quote p{font-size:13px;color:var(--white);line-height:1.6;font-style:italic;margin-bottom:10px;}
+.quote .who{font-family:var(--fm);font-size:10px;color:var(--muted);letter-spacing:0.1em;}
+
+/* NEWSLETTER */
+.nl{padding:92px 0;background:linear-gradient(180deg,var(--surface),#0c0e0c);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.nl::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,230,118,0.07),transparent 65%);top:-40%;left:50%;transform:translateX(-50%);}
+.nl-in{max-width:600px;margin:0 auto;text-align:center;position:relative;z-index:2;}
+.nl-lab{font-family:var(--fm);font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--green);margin-bottom:16px;display:block;}
+.nl h2{font-family:var(--fd);font-size:clamp(40px,5vw,62px);line-height:1;margin-bottom:14px;}
+.nl p{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:34px;}
+.nl-form{display:flex;max-width:460px;margin:0 auto 12px;}
+.nl-form input{flex:1;background:var(--surface3);border:1px solid var(--border);border-right:none;color:var(--white);font-family:var(--fb);font-size:14px;padding:15px 18px;outline:none;border-radius:2px 0 0 2px;}
+.nl-form input:focus{border-color:var(--green);}
+.nl-form input::placeholder{color:var(--muted);}
+.nl-form button{background:var(--green);color:#062B16;border:none;font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:15px 22px;cursor:pointer;border-radius:0 2px 2px 0;white-space:nowrap;transition:background .2s;}
+.nl-form button:hover{background:var(--green2);}
+.nl-priv{font-family:var(--fm);font-size:10px;color:var(--muted);letter-spacing:0.04em;}
+
+/* NETWORK (merged: one voice three worlds + what's coming) */
+.network{padding:92px 0;}
+.net-head{text-align:center;max-width:680px;margin:0 auto 44px;}
+.net-head .eyebrow{display:block;margin-bottom:14px;}
+.net-head h2{font-family:var(--fd);font-size:clamp(42px,5.5vw,66px);line-height:0.96;margin-bottom:14px;}
+.net-head p{font-size:15px;color:var(--muted);line-height:1.7;}
+.net-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch;}
+.net-card{border-radius:10px;padding:26px;position:relative;overflow:hidden;border:1px solid var(--border);transition:transform .25s,border-color .25s;}
+.net-card:hover{transform:translateY(-4px);}
+.net-card.live{background:linear-gradient(160deg,rgba(0,230,118,0.11),rgba(0,230,118,0.02));border-color:var(--green-bd);}
+.net-card.live:hover{border-color:var(--green);}
+.net-card.red{background:linear-gradient(160deg,rgba(232,35,26,0.08),transparent);}
+.net-card.yellow{background:linear-gradient(160deg,rgba(255,214,0,0.07),transparent);}
+.net-status{position:absolute;top:18px;right:18px;font-family:var(--fm);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;padding:3px 9px;border-radius:20px;}
+.net-status.on{background:var(--green);color:#062B16;font-weight:700;display:flex;align-items:center;gap:6px;}
+.net-status.on .d{width:6px;height:6px;border-radius:50%;background:var(--red);animation:blink 1.2s infinite;}
+.net-status.deck{border:1px solid var(--border);color:var(--muted);}
+.net-ico{width:50px;height:50px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+.net-card h3{font-family:var(--fd);font-size:30px;letter-spacing:0.02em;line-height:1;margin-bottom:8px;}
+.net-card .vsub{font-family:var(--fm);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:14px;}
+.net-card p{font-size:13px;color:var(--muted);line-height:1.6;}
+.net-card .clist{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:6px;}
+.net-card .clist li{font-size:12px;color:var(--white);display:flex;gap:9px;align-items:flex-start;}
+.net-card .clist li::before{content:'';width:5px;height:5px;border-radius:50%;margin-top:7px;flex-shrink:0;}
+.net-card.live .clist li::before{background:var(--green);}
+.net-card.red .clist li::before{background:var(--red);}
+.net-card.yellow .clist li::before{background:var(--yellow);}
+
+/* PRESS */
+.press{padding:92px 0;}
+.press-in{background:linear-gradient(165deg,var(--surface2),var(--surface));border:1px solid var(--border);border-radius:10px;padding:54px;position:relative;overflow:hidden;text-align:center;}
+.press-in::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,0.06),transparent 65%);top:-50%;left:50%;transform:translateX(-50%);}
+.press-eye{font-family:var(--fm);font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;position:relative;z-index:2;}
+.press-in h2{font-family:var(--fd);font-size:clamp(40px,5.5vw,58px);letter-spacing:0.04em;line-height:1;margin-bottom:16px;position:relative;z-index:2;}
+.press-in .lead{font-size:14px;color:var(--muted);line-height:1.7;max-width:580px;margin:0 auto;position:relative;z-index:2;}
+.press-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px auto;max-width:760px;position:relative;z-index:2;}
+.press-c{background:var(--black);border:1px solid var(--border);border-radius:8px;padding:20px;text-align:left;}
+.press-c .h{font-family:var(--fd);font-size:18px;color:var(--gold);margin-bottom:6px;letter-spacing:0.03em;}
+.press-c p{font-size:11px;color:var(--muted);line-height:1.55;}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#1a1200;border:none;font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:15px 30px;border-radius:2px;cursor:pointer;text-decoration:none;transition:background .2s;position:relative;z-index:2;}
+.btn-gold:hover{background:#e09416;}
+
+/* FAQ */
+.faq{padding:0 0 92px;}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.faq-item{background:linear-gradient(165deg,var(--surface2),var(--surface));border:1px solid var(--border);border-radius:8px;padding:22px;}
+.faq-item h4{font-size:15px;font-weight:600;margin-bottom:8px;color:var(--white);}
+.faq-item p{font-size:13px;color:var(--muted);line-height:1.6;}
+
+/* FOOTER */
+footer{background:var(--black);border-top:1px solid var(--border);padding:60px 0 32px;}
+.f-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:46px;}
+.f-logo{font-family:var(--fd);font-size:32px;letter-spacing:0.03em;margin-bottom:12px;}
+.f-logo .plus{color:var(--red);}
+.f-tag{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:20px;max-width:280px;}
+.socials{display:flex;gap:11px;}
+.soc{width:34px;height:34px;background:var(--surface);border:1px solid var(--border);border-radius:2px;display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;font-family:var(--fm);font-size:11px;font-weight:700;transition:all .2s;}
+.soc:hover{border-color:var(--green);color:var(--green);background:var(--green-mut);}
+.f-ct{font-family:var(--fm);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--green);margin-bottom:15px;}
+.f-links{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.f-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s;}
+.f-links a:hover{color:var(--white);}
+.f-bot{padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.f-legal,.f-consent{font-family:var(--fm);font-size:10px;color:var(--muted);letter-spacing:0.08em;}
+.f-consent{color:var(--faint);}
+
+@media(max-width:820px){
+  .nlinks{gap:16px;}
+  .nlinks .nhide{display:none;}
+  .hero h1{font-size:64px;}
+  .feed-grid{grid-template-columns:1fr;}
+  .cardF{grid-row:auto;}
+  .mission-in{grid-template-columns:1fr;gap:30px;}
+  .deck-grid{grid-template-columns:1fr;gap:30px;}
+  .qgrid{grid-template-columns:1fr;}
+  .net-grid{grid-template-columns:1fr;}
+  .press-in{padding:32px;}
+  .press-cards{grid-template-columns:1fr;}
+  .faq-grid{grid-template-columns:1fr;}
+  .f-top{grid-template-columns:1fr 1fr;}
+  .f-bot{flex-direction:column;gap:10px;text-align:center;}
+}
+</style>
+</head>
+<body class="lock">
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="intro-static"></div>
+  <div class="intro-stack">
+    <div class="intro-tally"><span class="d"></span>ON AIR</div>
+    <div class="intro-logo">AceTV<span>+</span></div>
+  </div>
+  <div class="intro-line"></div>
+</div>
+
+<!-- TV FLAIR OVERLAYS -->
+<div class="fx fx-grain"></div>
+<div class="fx fx-scan"></div>
+<div class="fx fx-vig"></div>
+
+<!-- NAV -->
+<nav><div class="container"><div class="in">
+<a class="logo" href="#top">AceTV<span class="plus">+</span><span class="sub">Sports</span></a>
+<ul class="nlinks">
+<li><a href="#network">Network</a></li>
+<li><a href="#press">Press Kit</a></li>
+<li><a href="#feed" class="nwatch">▶ Watch</a></li>
+</ul>
+</div></div></nav>
+
+<!-- TICKER -->
+<div class="tick" id="top"><div class="tick-tr">
+<span class="tick-it"><span class="live"></span>New Breakdown Every Friday</span>
+<span class="tick-it">Context Over Noise</span>
+<span class="tick-it">We Love The Game More Than The Argument</span>
+<span class="tick-it">Sports History · Recaps · Real Takes</span>
+<span class="tick-it"><span class="live"></span>Join The Deck</span>
+<span class="tick-it">We're All We Got</span>
+<span class="tick-it"><span class="live"></span>New Breakdown Every Friday</span>
+<span class="tick-it">Context Over Noise</span>
+<span class="tick-it">We Love The Game More Than The Argument</span>
+<span class="tick-it">Sports History · Recaps · Real Takes</span>
+<span class="tick-it"><span class="live"></span>Join The Deck</span>
+<span class="tick-it">We're All We Got</span>
+</div></div>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-glow"></div>
+<div class="hero-grid"></div>
+<div class="hero-c">
+<div class="network-chip fade d1"><span class="pdot">+</span> AceTV+ Network · Sports Leads The Lineup</div>
+<h1 class="fade d2">LOVE THE GAME.<br><span class="g">NOT THE NOISE.</span></h1>
+<p class="hero-sub fade d3">Sports media is screaming at you. We're not. AceTV+ Sports is recaps, history, and honest takes built on the <strong>context behind the numbers</strong>. No fandom wars. No agenda. Just the game, loved louder and smarter.</p>
+<div class="fade d4">
+<div class="capture">
+<input type="email" id="hero-email" placeholder="your@email.com">
+<button class="cta-primary" onclick="cap('hero-email','hero')">Get The Breakdown →</button>
+</div>
+<p class="cap-sub">Free. Weekly. The week in sport, stripped of the noise.</p>
+</div>
+</div>
+</section>
+
+<hr class="divider">
+
+<!-- FEED -->
+<section class="feed" id="feed"><div class="container">
+<div class="shead"><span class="lab">Latest From The Sideline</span><div class="ln"></div><span class="tag">New</span></div>
+<div class="feed-grid">
+<a class="cardF" href="https://youtube.com/@acetv" target="_blank" rel="noopener" onclick="track('content_click',{slot:'featured'})">
+<div class="cardF-img"><div class="badge">Film Breakdown</div><div class="pl"><svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg></div></div>
+<div class="cardF-b">
+<div class="cmeta"><span class="ctype">Sports History</span><div class="cdot"></div><span class="cdate">This Week</span></div>
+<h3>The Greatest Team You Were Told To Forget</h3>
+<p>Everyone knows the dynasties. We rebuilt the case for the squad the highlight reels skipped, with the context the box score never gave you. The numbers lie. The tape doesn't.</p>
+<div class="cfoot"><span class="crt">16 min watch</span><span class="clink">Watch on YouTube →</span></div>
+</div>
+</a>
+<a class="cardS" href="https://youtube.com/@acetv" target="_blank" rel="noopener">
+<div class="num">01</div>
+<div><div class="cmeta" style="margin-bottom:6px;"><span class="ctype" style="font-size:8px;">Recap</span><div class="cdot"></div><span class="cdate">This Week</span></div>
+<h4>What Your Eyes Told You vs. What The Stats Did Last Night</h4>
+<div class="m">9 min · Game Recap</div></div>
+</a>
+<a class="cardS" href="https://youtube.com/@acetv" target="_blank" rel="noopener">
+<div class="num">02</div>
+<div><div class="cmeta" style="margin-bottom:6px;"><span class="ctype" style="font-size:8px;">Take</span><div class="cdot"></div><span class="cdate">Last Week</span></div>
+<h4>Stop Letting Debate Shows Tell You How To Feel About The GOAT</h4>
+<div class="m">11 min · Real Take</div></div>
+</a>
+<a class="cardS" href="https://youtube.com/@acetv" target="_blank" rel="noopener">
+<div class="num">03</div>
+<div><div class="cmeta" style="margin-bottom:6px;"><span class="ctype" style="font-size:8px;">Crossover</span><div class="cdot"></div><span class="cdate">Last Week</span></div>
+<h4>The Movie That Got Sports Culture More Right Than Any Documentary</h4>
+<div class="m">8 min · Screen × Sports</div></div>
+</a>
+</div>
+<div class="viewall"><a href="https://youtube.com/@acetv" target="_blank" rel="noopener" class="ghost">Watch Everything On YouTube →</a></div>
+</div></section>
+
+<!-- MISSION -->
+<section class="mission"><div class="container"><div class="mission-in">
+<div><div class="mission-q">CONTEXT<br>OVER NOISE.</div></div>
+<div class="mission-b">
+<p>AceTV+ exists as a response to the negativity that infected sports talk. We don't kill with kindness. We smother with love and laughter and punish with knowledge.</p>
+<p>We don't draw lines in the sand of fandom. We show the lines that already exist and look at them straight. I might tell you a joke, but I'll never tell you a lie.</p>
+<a href="#deck" class="btn-dark">Join The Deck →</a>
+</div>
+</div></div></section>
+
+<!-- DECK -->
+<section class="deck" id="deck"><div class="container">
+<div class="deck-grid">
+<div>
+<div class="shead" style="margin-bottom:20px;"><span class="lab">The Community</span><div class="ln"></div></div>
+<h2>JOIN <span class="g">THE DECK.</span></h2>
+<p class="deck-body">Every Ace belongs to a deck. It's the room where sports talk happens without the screaming, where your take gets heard instead of dunked on, and where the whole AceTV+ network comes together.</p>
+<ul class="perks">
+<li><div class="pic"><svg viewBox="0 0 12 12" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></div>Free access to every recap, breakdown, and take</li>
+<li><div class="pic"><svg viewBox="0 0 12 12" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></div>The Breakdown newsletter, every week</li>
+<li><div class="pic"><svg viewBox="0 0 12 12" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></div>Discord — real sports talk, zero fandom wars</li>
+<li><div class="pic"><svg viewBox="0 0 12 12" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></div>First in line as Screen and Laughs roll out</li>
+</ul>
+<a href="#" class="btn-green cta-primary" onclick="cap(null,'deck_join')">Join Free →</a>
+</div>
+<div class="tiers">
+<div class="tier">
+<div class="tier-h"><div class="tier-name">THE DECK</div><div class="tier-price"><div class="tier-amt">$0</div><div class="tier-per">forever</div></div></div>
+<ul><li class="on">Every recap, video, and take</li><li class="on">Weekly newsletter</li><li class="on">Public Discord</li><li>Early access drops</li><li>Exclusive Ace+ episodes</li></ul>
+</div>
+<div class="tier feat">
+<div class="tier-badge">Founding Rate</div>
+<div class="tier-h"><div class="tier-name">ACE+</div><div class="tier-price"><div class="tier-amt">$7</div><div class="tier-per">/ month</div></div></div>
+<ul><li class="on">Everything in The Deck</li><li class="on">Early access, 72hr before public</li><li class="on">Exclusive Ace+ episodes monthly</li><li class="on">Live monthly creator hangout</li><li class="on">Ace+ Discord channels</li></ul>
+<div class="waitnote">Founding members lock $7 for life. Waitlist open now.</div>
+</div>
+<div class="tier">
+<div class="tier-h"><div class="tier-name">INNER CIRCLE</div><div class="tier-price"><div class="tier-amt">$25</div><div class="tier-per">/ month</div></div></div>
+<ul><li class="on">Everything in Ace+</li><li class="on">Submit topics for coverage</li><li class="on">Monthly group call with the team</li><li class="on">Name in the credits</li></ul>
+</div>
+</div>
+</div>
+</div></section>
+
+<!-- QUOTES -->
+<section class="quotes"><div class="container">
+<div class="shead"><span class="lab">From The Deck</span><div class="ln"></div></div>
+<div class="qgrid">
+<div class="quote"><p>"Finally a sports page that doesn't make me pick a side to enjoy the game. This is the one."</p><div class="who">— FOUNDING MEMBER</div></div>
+<div class="quote"><p>"The history breakdowns hit different. I learn something every time and I'm still entertained."</p><div class="who">— THE DECK · DISCORD</div></div>
+<div class="quote"><p>"No screaming, no ragebait, just real takes. Sent it to my whole group chat already."</p><div class="who">— EARLY SUBSCRIBER</div></div>
+</div>
+</div></section>
+
+<!-- NEWSLETTER -->
+<section class="nl" id="newsletter"><div class="container"><div class="nl-in">
+<span class="nl-lab">The Weekly Drop</span>
+<h2>THE BREAKDOWN.<br>EVERY WEEK.</h2>
+<p>One email. The week in sport with the context the highlight reels skip. No PR, no fandom war, no ads steering the take.</p>
+<div class="nl-form">
+<input type="email" id="nl-email" placeholder="your@email.com">
+<button class="cta-primary" onclick="cap('nl-email','newsletter')">Get The Breakdown →</button>
+</div>
+<p class="nl-priv">No spam. Weekly only. Unsubscribe anytime. GDPR compliant.</p>
+</div></div></section>
+
+<!-- NETWORK (one voice three worlds, merged) -->
+<section class="network" id="network"><div class="container">
+<div class="net-head">
+<span class="eyebrow">What's Coming To The Network</span>
+<h2>ONE VOICE. THREE WORLDS.</h2>
+<p>AceTV+ is a media network for people who love the game and the culture. Sports leads. Screen and comedy are on deck. Same honest voice, three rooms, one community holding it together.</p>
+</div>
+<div class="net-grid">
+<div class="net-card live">
+<div class="net-status on"><span class="d"></span>Now Live</div>
+<div class="net-ico" style="background:var(--green);">
+<svg width="28" height="22" viewBox="0 0 44 36" fill="none"><rect x="2" y="8" width="40" height="26" rx="3" stroke="#062B16" stroke-width="2.6"/><path d="M14 2L22 9L30 2" stroke="#062B16" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 15l8 6-8 6V15z" fill="#062B16"/></svg></div>
+<h3>AceTV<span style="color:var(--green);">Sports</span></h3>
+<div class="vsub" style="color:var(--green);">Recaps · History · Context</div>
+<p>The flagship. Game and season recaps, sports history deep-dives, and takes that care about the story behind the stats.</p>
+<ul class="clist">
+<li>Game &amp; season breakdowns</li>
+<li>Sports history &amp; explainers</li>
+<li>Honest, no-fandom-war takes</li>
+</ul>
+</div>
+<div class="net-card red">
+<div class="net-status deck">On Deck</div>
+<div class="net-ico" style="background:var(--red-mut);border:1px solid var(--red-bd);">
+<svg width="26" height="20" viewBox="0 0 44 36" fill="none"><rect x="2" y="8" width="40" height="26" rx="3" stroke="#E8231A" stroke-width="2.6"/><path d="M14 2L22 9L30 2" stroke="#E8231A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="21" r="4" stroke="#E8231A" stroke-width="1.6"/></svg></div>
+<h3>AceTV<span style="color:var(--red);">Screen</span></h3>
+<div class="vsub" style="color:var(--red2);">Film · Culture · Real Talk</div>
+<p>Film reviews, cultural breakdowns, and current-events commentary that respects your intelligence. Crossing into the sports feed now, its own room soon.</p>
+<ul class="clist">
+<li>Film &amp; show reviews</li>
+<li>Cultural essays &amp; reactions</li>
+<li>Current events, no agenda</li>
+</ul>
+</div>
+<div class="net-card yellow">
+<div class="net-status deck">On Deck</div>
+<div class="net-ico" style="background:var(--yellow-mut);border:1px solid var(--yellow-bd);">
+<svg width="26" height="20" viewBox="0 0 44 36" fill="none"><rect x="2" y="8" width="40" height="26" rx="3" stroke="#FFD600" stroke-width="2.6"/><path d="M14 2L22 9L30 2" stroke="#FFD600" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18c1.5 5 12.5 5 14 0" stroke="#FFD600" stroke-width="2.2" stroke-linecap="round"/><circle cx="16.5" cy="15" r="1.3" fill="#FFD600"/><circle cx="27.5" cy="15" r="1.3" fill="#FFD600"/></svg></div>
+<h3>AceTV<span style="color:var(--yellow);">Laughs</span></h3>
+<div class="vsub" style="color:var(--yellow);">Skits · VO · Reactions</div>
+<p>Comedy for thinkers, bait for everyone else. Skits, voiceover, and reaction comedy. We make you laugh, then make you think.</p>
+<ul class="clist">
+<li>Skits &amp; sketches</li>
+<li>Voiceover &amp; reactions</li>
+<li>Jokes that travel furthest</li>
+</ul>
+</div>
+</div>
+</div></section>
+
+<!-- PRESS -->
+<section class="press" id="press"><div class="container">
+<div class="press-in">
+<div class="press-eye">Press &amp; Partnerships</div>
+<h2>LEAGUES · BRANDS · STUDIOS</h2>
+<p class="lead">Partner with a media brand fans actually trust, because we refuse the agenda. Sponsorships, league promo, and studio placements across the network, made to land with an audience that tunes out everything that smells like an ad.</p>
+<div class="press-cards">
+<div class="press-c"><div class="h">Leagues</div><p>Put your game in front of fans who follow athletes and stories, not just scores.</p></div>
+<div class="press-c"><div class="h">Brands</div><p>Sponsor content that gets shared instead of skipped, across sports, screen, and comedy.</p></div>
+<div class="press-c"><div class="h">Studios</div><p>Use the Screen vertical for film and show promotion that doesn't read like a trailer.</p></div>
+</div>
+<a href="mailto:press@acetv.plus" class="btn-gold cta-primary" onclick="track('cta_click',{cta_label:'media_kit'})">Download The Media Kit →</a>
+</div>
+</div></section>
+
+<!-- FAQ -->
+<section class="faq"><div class="container">
+<div class="shead"><span class="lab">Straight Answers</span><div class="ln"></div></div>
+<div class="faq-grid">
+<div class="faq-item"><h4>What is AceTV+ Sports?</h4><p>A digital sports media brand covering game recaps, sports history, and honest analysis that focuses on the context behind the numbers rather than fandom-driven debate. It's the flagship vertical of the AceTV+ network.</p></div>
+<div class="faq-item"><h4>How is this different from ESPN or Barstool?</h4><p>We refuse the manufactured tribal debate format. AceTV+ loves the game more than the argument, prioritizing history, honest takes, and community over fan-war content built to make you angry.</p></div>
+<div class="faq-item"><h4>Is it free?</h4><p>Yes. All content is free across YouTube, TikTok, and Instagram. The optional Ace+ membership adds early access, exclusive episodes, and a community for the cost of a sandwich a month.</p></div>
+<div class="faq-item"><h4>What's coming next?</h4><p>Sports leads now. Screen (film and culture) and Laughs (comedy) are the next two rooms in the network, with crossover content already appearing in the sports feed.</p></div>
+</div>
+</div></section>
+
+<!-- FOOTER -->
+<footer><div class="container">
+<div class="f-top">
+<div>
+<div class="f-logo">AceTV<span class="plus">+</span></div>
+<p class="f-tag">A media network for people who love the game and the culture. Sports first. Context always. We're all we got.</p>
+<div class="socials"><a class="soc" href="https://youtube.com/@acetv" target="_blank" rel="noopener">YT</a><a class="soc" href="#">IG</a><a class="soc" href="#">TK</a><a class="soc" href="#">DC</a><a class="soc" href="#">X</a></div>
+</div>
+<div><div class="f-ct">Network</div><ul class="f-links"><li><a href="#network">Sports</a></li><li><a href="#network">Screen (on deck)</a></li><li><a href="#network">Laughs (on deck)</a></li><li><a href="https://youtube.com/@acetv" target="_blank" rel="noopener">Watch</a></li></ul></div>
+<div><div class="f-ct">The Deck</div><ul class="f-links"><li><a href="#deck">Join Free</a></li><li><a href="#deck">Ace+ Waitlist</a></li><li><a href="#newsletter">Newsletter</a></li><li><a href="#deck">Discord</a></li></ul></div>
+<div><div class="f-ct">Company</div><ul class="f-links"><li><a href="#network">About</a></li><li><a href="#press">Press Kit</a></li><li><a href="#press">Partnerships</a></li><li><a href="mailto:hello@acetv.plus">Contact</a></li><li><a href="#">Privacy</a></li></ul></div>
+</div>
+<div class="f-bot">
+<div class="f-legal">© 2025 AceTV+ · All rights reserved · We're all we got.</div>
+<div class="f-consent">By subscribing you agree to our Privacy Policy and Terms. GDPR compliant.</div>
+</div>
+</div></footer>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+function track(ev,p){p=p||{};window.dataLayer.push(Object.assign({event:ev,page:location.pathname},p));console.log('[AceTV+ track]',ev,p);}
+
+// INTRO: broadcast power-on, then reveal. Respects reduced-motion.
+(function(){
+  var intro=document.getElementById('intro'), body=document.body;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function done(){ if(intro){intro.classList.add('off'); body.classList.remove('lock'); setTimeout(function(){if(intro)intro.remove();},600);} }
+  if(reduce){ if(intro)intro.remove(); body.classList.remove('lock'); }
+  else { setTimeout(done, 2600); }
+  // safety: never trap the user
+  setTimeout(function(){ body.classList.remove('lock'); if(intro&&document.body.contains(intro)){intro.classList.add('off');setTimeout(function(){if(intro)intro.remove();},600);} }, 4000);
+})();
+
+// two-step email capture (micro-commit). Wire endpoint to Beehiiv via n8n webhook.
+function cap(id,src){
+  if(id){
+    var el=document.getElementById(id);
+    if(!el.value||el.value.indexOf('@')<0){el.style.borderColor='var(--green)';el.placeholder='enter a valid email ↑';return;}
+    track('cta_click',{cta_label:src,email:true});
+    el.value='';
+    var btn=el.nextElementSibling;btn.textContent="You're in. ✓";btn.style.background='#0b8a45';btn.style.color='#fff';btn.style.animation='none';
+  } else { track('cta_click',{cta_label:src}); }
+}
+
+// scroll depth + nav border
+var marks={25:0,50:0,75:0,100:0};
+window.addEventListener('scroll',function(){
+  var p=Math.round(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100);
+  [25,50,75,100].forEach(function(m){if(p>=m&&!marks[m]){marks[m]=1;track('scroll_depth_'+m);}});
+  document.querySelector('nav').style.borderBottomColor=window.scrollY>40?'rgba(0,230,118,0.2)':'rgba(242,242,239,0.1)';
+});
+
+// reveal on scroll, with failsafe so nothing stays hidden
+var reveals=document.querySelectorAll('.cardF,.cardS,.tier,.quote,.net-card,.faq-item,.press-in');
+function show(el){el.style.opacity='1';el.style.transform='translateY(0)';}
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target);}});},{threshold:0.06});
+  reveals.forEach(function(el){el.style.opacity='0';el.style.transform='translateY(22px)';el.style.transition='opacity .55s ease, transform .55s ease';io.observe(el);});
+  setTimeout(function(){reveals.forEach(show);},3000);
+} else { reveals.forEach(show); }
+</script>
+</body>
+</html>
