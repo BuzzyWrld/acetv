@@ -711,13 +711,15 @@ svg.use-green,svg.use-white,svg.use-black,svg.use-red,svg.use-yellow,svg.use-gre
 window.dataLayer = window.dataLayer || [];
 function track(ev,p){p=p||{};window.dataLayer.push(Object.assign({event:ev,page:location.pathname},p));console.log('[AceTV+ track]',ev,p);}
 
-// INTRO: broadcast power-on, then reveal. Respects reduced-motion.
+// INTRO: broadcast power-on, then reveal. Skipped on refresh (sessionStorage), respects reduced-motion.
 (function(){
   var intro=document.getElementById('intro'), body=document.body;
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var seen=false; try{ seen=!!sessionStorage.getItem('acetv_intro'); }catch(e){}
   function done(){ if(intro){intro.classList.add('off'); body.classList.remove('lock'); setTimeout(function(){if(intro)intro.remove();},600);} }
-  if(reduce){ if(intro)intro.remove(); body.classList.remove('lock'); }
+  if(reduce||seen){ if(intro)intro.remove(); body.classList.remove('lock'); }
   else {
+    try{ sessionStorage.setItem('acetv_intro','1'); }catch(e){}
     setTimeout(function(){ var m=document.getElementById('intro-ace-mark'); if(m) m.classList.add('play'); }, 1800);
     setTimeout(done, 2200);
   }
