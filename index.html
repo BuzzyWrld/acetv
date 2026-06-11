@@ -160,7 +160,9 @@ nav .in{display:flex;align-items:center;justify-content:space-between;height:62p
 
 /* MISSION */
 .mission{background:linear-gradient(135deg,#00E676,#00c765);padding:62px 0;position:relative;overflow:hidden;}
-.mission::before{content:"WE'RE ALL\A WE GOT";white-space:pre;position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;font-family:var(--fd);font-size:128px;line-height:0.82;letter-spacing:0.05em;color:rgba(6,43,22,0.08);padding-left:44px;overflow:hidden;}
+.mission-bg{position:absolute;inset:0;z-index:1;display:flex;align-items:center;overflow:hidden;pointer-events:none;}
+.mission-bg-tr{display:flex;white-space:nowrap;font-family:var(--fd);font-size:150px;line-height:0.9;letter-spacing:0.04em;color:rgba(6,43,22,0.13);animation:missionMarquee 34s linear infinite;will-change:transform;}
+@keyframes missionMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .mission::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0,transparent 3px,rgba(6,43,22,0.05) 4px,transparent 5px);}
 .mission-in{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center;}
 .mission-q{font-family:var(--fd);font-size:46px;letter-spacing:0.03em;line-height:1.04;color:#062B16;}
@@ -231,11 +233,13 @@ nav .in{display:flex;align-items:center;justify-content:space-between;height:62p
 .net-card.live{background:linear-gradient(160deg,rgba(0,230,118,0.11),rgba(0,230,118,0.02));border-color:var(--green-bd);}
 .net-card.live:hover{border-color:var(--green);}
 .net-card.red{background:linear-gradient(160deg,rgba(232,35,26,0.08),transparent);}
+.net-card.red:hover{border-color:var(--red);}
 .net-card.yellow{background:linear-gradient(160deg,rgba(255,214,0,0.07),transparent);}
+.net-card.yellow:hover{border-color:var(--yellow);}
 .net-status{position:absolute;top:18px;right:18px;font-family:var(--fm);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;padding:3px 9px;border-radius:20px;}
 .net-status.on{background:var(--green);color:#062B16;font-weight:700;display:flex;align-items:center;gap:6px;}
 .net-status.on .d{width:6px;height:6px;border-radius:50%;background:var(--red);animation:blink 1.2s infinite;}
-.net-status.deck{border:1px solid var(--border);color:var(--muted);}
+.net-status.deck{border:1px solid var(--border);color:var(--muted);font-size:8px;letter-spacing:0.09em;padding:3px 8px;}
 .net-ico{width:50px;height:50px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
 .net-card h3{font-family:var(--fd);font-size:30px;letter-spacing:0.02em;line-height:1;margin-bottom:8px;}
 .net-card .vsub{font-family:var(--fm);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:14px;}
@@ -313,11 +317,19 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:60px 0
   .capture,.nl-form{flex-direction:column;gap:10px;}
   .capture input,.nl-form input{border-right:1px solid var(--border);border-radius:2px;text-align:center;}
   .capture button,.nl-form button{width:100%;border-radius:2px;}
-  /* center mission on phone + keep the background watermark from clipping */
+  /* center mission on phone: heading on one line, big one-line watermark filling top to bottom */
   .mission-in{text-align:center;}
-  .mission-q{font-size:40px;}
+  .mission-q{font-size:34px;white-space:nowrap;}
+  .mission-q br{display:none;}
   .mission-b{margin:0 auto;}
-  .mission::before{font-size:58px;line-height:0.9;padding-left:0;align-items:center;text-align:center;}
+  .mission-bg-tr{font-size:92px;}
+  /* footer: AceTV+ centered on top with socials, three columns below */
+  .f-top{grid-template-columns:repeat(3,1fr);gap:20px;text-align:center;}
+  .f-top>div:first-child{grid-column:1/-1;margin-bottom:6px;}
+  .f-top>div:first-child .f-tag{margin-left:auto;margin-right:auto;}
+  .socials{justify-content:center;}
+  .f-links{align-items:center;}
+  .f-links a{font-size:12px;}
   /* tighten vertical rhythm between sections on phone */
   .feed,.deck,.network,.press{padding:54px 0;}
   .quotes{padding:0 0 54px;}
@@ -429,8 +441,8 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:60px 0
 </div></section>
 
 <!-- MISSION -->
-<section class="mission"><div class="container"><div class="mission-in">
-<div><div class="mission-q">CONTEXT<br>OVER NOISE.</div></div>
+<section class="mission"><div class="mission-bg" aria-hidden="true"><div class="mission-bg-tr"><span>THE DECK&nbsp;&nbsp;·&nbsp;&nbsp;ACE OF CLUBS&nbsp;&nbsp;·&nbsp;&nbsp;ACE OF SPADES&nbsp;&nbsp;·&nbsp;&nbsp;</span><span>THE DECK&nbsp;&nbsp;·&nbsp;&nbsp;ACE OF CLUBS&nbsp;&nbsp;·&nbsp;&nbsp;ACE OF SPADES&nbsp;&nbsp;·&nbsp;&nbsp;</span></div></div><div class="container"><div class="mission-in">
+<div><div class="mission-q">CONTEXT <br>OVER NOISE.</div></div>
 <div class="mission-b">
 <p>AceTV+ exists as a response to the negativity that infected sports talk. We don't kill with kindness. We smother with love and laughter and punish with knowledge.</p>
 <p>We don't draw lines in the sand of fandom. We show the lines that already exist and look at them straight. I might tell you a joke, but I'll never tell you a lie.</p>
@@ -458,14 +470,14 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:60px 0
 <ul><li class="on">Every recap, video, and take</li><li class="on">Weekly newsletter</li><li class="on">Public Discord</li><li>Early access drops</li><li>Exclusive Ace+ episodes</li></ul>
 </div>
 <div class="tier feat">
-<div class="tier-badge">Founding Rate</div>
-<div class="tier-h"><div class="tier-name">ACE+</div><div class="tier-price"><div class="tier-amt">$7</div><div class="tier-per">/ month</div></div></div>
+<div class="tier-badge">House Favorite</div>
+<div class="tier-h"><div class="tier-name">ACE OF CLUBS</div><div class="tier-price"><div class="tier-amt">$7</div><div class="tier-per">/ month</div></div></div>
 <ul><li class="on">Everything in The Deck</li><li class="on">Early access, 72hr before public</li><li class="on">Exclusive Ace+ episodes monthly</li><li class="on">Live monthly creator hangout</li><li class="on">Ace+ Discord channels</li></ul>
 <div class="waitnote">Founding members lock $7 for life. Waitlist open now.</div>
 </div>
 <div class="tier">
-<div class="tier-h"><div class="tier-name">INNER CIRCLE</div><div class="tier-price"><div class="tier-amt">$25</div><div class="tier-per">/ month</div></div></div>
-<ul><li class="on">Everything in Ace+</li><li class="on">Submit topics for coverage</li><li class="on">Monthly group call with the team</li><li class="on">Name in the credits</li></ul>
+<div class="tier-h"><div class="tier-name">ACE OF SPADES</div><div class="tier-price"><div class="tier-amt">$25</div><div class="tier-per">/ month</div></div></div>
+<ul><li class="on">Everything in Ace of Clubs</li><li class="on">Submit topics for coverage</li><li class="on">Monthly group call with the team</li><li class="on">Name in the credits</li></ul>
 </div>
 </div>
 </div>
@@ -515,7 +527,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:60px 0
 </ul>
 </div>
 <div class="net-card red">
-<div class="net-status deck">On Deck</div>
+<div class="net-status deck">Coming Soon</div>
 <div class="net-ico" style="background:var(--red-mut);border:1px solid var(--red-bd);">
 <svg width="26" height="20" viewBox="0 0 44 36" fill="none"><rect x="2" y="8" width="40" height="26" rx="3" stroke="#E8231A" stroke-width="2.6"/><path d="M14 2L22 9L30 2" stroke="#E8231A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="21" r="4" stroke="#E8231A" stroke-width="1.6"/></svg></div>
 <h3>AceTV<span style="color:var(--red);">Screen</span></h3>
@@ -528,7 +540,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:60px 0
 </ul>
 </div>
 <div class="net-card yellow">
-<div class="net-status deck">On Deck</div>
+<div class="net-status deck">Coming Soon</div>
 <div class="net-ico" style="background:var(--yellow-mut);border:1px solid var(--yellow-bd);">
 <svg width="26" height="20" viewBox="0 0 44 36" fill="none"><rect x="2" y="8" width="40" height="26" rx="3" stroke="#FFD600" stroke-width="2.6"/><path d="M14 2L22 9L30 2" stroke="#FFD600" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18c1.5 5 12.5 5 14 0" stroke="#FFD600" stroke-width="2.2" stroke-linecap="round"/><circle cx="16.5" cy="15" r="1.3" fill="#FFD600"/><circle cx="27.5" cy="15" r="1.3" fill="#FFD600"/></svg></div>
 <h3>AceTV<span style="color:var(--yellow);">Laughs</span></h3>
