@@ -6,6 +6,7 @@
 <title>AceTV+ Sports — Love the Game, Not the Noise</title>
 <meta name="description" content="Game recaps, sports history, and honest takes that care about the context behind the numbers. No fandom wars. No agenda. Part of the AceTV+ network. We're all we got.">
 <link rel="canonical" href="https://acetv.plus/sports">
+<link rel="icon" type="image/svg+xml" href="acetv_ace_mark_green.svg">
 <meta property="og:title" content="AceTV+ Sports — Love the Game, Not the Noise">
 <meta property="og:description" content="Recaps, history, and honest takes with context over tribalism. Part of the AceTV+ network.">
 <meta property="og:type" content="website">
@@ -338,9 +339,84 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:60px 0
   .mission{padding:50px 0;}
   footer{padding:46px 0 28px;}
 }
+
+/* ===== CARD LAYER ===== */
+.use-green{--sf:var(--green);--pf:#062B16;}
+.use-white{--sf:var(--white);--pf:#070707;}
+.use-black{--sf:#070707;--pf:#F2F2EF;}
+.use-red{--sf:var(--red);--pf:#1a0605;}
+.use-yellow{--sf:var(--yellow);--pf:#1a1500;}
+.use-greenoutline{--sf:none;--sk:var(--green);--pf:var(--green);}
+svg.use-green,svg.use-white,svg.use-black,svg.use-red,svg.use-yellow,svg.use-greenoutline{aspect-ratio:100/120;height:auto;}
+.pip-ic{width:12px;display:inline-block;vertical-align:-2px;margin-right:9px;flex-shrink:0;}
+.tick-it::after{content:'♠';margin-left:38px;color:rgba(6,43,22,0.45);font-size:10px;}
+.deck-grid{grid-template-columns:1fr 320px;}
+.deck h2.dh{font-size:clamp(40px,5vw,62px);line-height:0.92;margin-bottom:14px;}
+.deck .dealt{font-family:var(--fd);font-size:22px;letter-spacing:0.04em;color:var(--green2);margin-bottom:14px;}
+.perks li svg{width:13px;flex-shrink:0;margin-top:4px;}
+.memcard{width:300px;height:430px;border-radius:16px;position:relative;overflow:hidden;box-shadow:0 26px 60px rgba(0,0,0,0.6),0 0 36px rgba(0,230,118,0.08);border:1px solid rgba(0,230,118,0.25);background:linear-gradient(155deg,#0c120e,#0a0f0c 50%,#0d0d0d);}
+.memcard .mscan{position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0,transparent 2px,rgba(0,0,0,0.18) 3px,transparent 4px);}
+.memcard .medge{position:absolute;inset:10px;border:1px solid rgba(0,230,118,0.2);border-radius:11px;}
+.memcard .msweep{position:absolute;top:-10%;bottom:-10%;width:55%;left:0;background:linear-gradient(115deg,transparent,rgba(92,255,176,0.16),transparent);animation:holo 4.5s linear infinite;}
+@keyframes holo{0%{transform:translateX(-130%) skewX(-16deg)}100%{transform:translateX(320%) skewX(-16deg)}}
+.mcorner{position:absolute;display:flex;flex-direction:column;align-items:center;line-height:0.8;z-index:3;}
+.mcorner .a{font-family:var(--fd);font-size:28px;color:var(--green);}
+.mcorner svg{width:15px;margin-top:2px;}
+.mcorner.tl{top:18px;left:18px;}.mcorner.br{bottom:18px;right:18px;transform:rotate(180deg);}
+.mtop{position:absolute;top:60px;left:0;right:0;text-align:center;z-index:3;}
+.mtop .net{font-family:var(--fd);font-size:24px;letter-spacing:0.05em;}.mtop .net span{color:var(--red);}
+.mtop .dk{font-family:var(--fm);font-size:9px;letter-spacing:0.4em;color:var(--green2);text-transform:uppercase;margin-top:2px;}
+.mcenter{position:absolute;top:50%;left:50%;transform:translate(-50%,-52%);z-index:2;width:128px;filter:drop-shadow(0 0 22px rgba(0,230,118,0.4));}
+.mfoot{position:absolute;bottom:50px;left:0;right:0;text-align:center;z-index:3;padding:0 30px;}
+.mfoot .tr{font-family:var(--fd);font-size:18px;letter-spacing:0.06em;color:var(--green);}
+.mfoot .fld{font-family:var(--fm);font-size:8px;letter-spacing:0.18em;color:var(--muted);text-transform:uppercase;margin-top:7px;border-top:1px solid rgba(0,230,118,0.2);padding-top:8px;display:flex;justify-content:space-between;}
+.mcap{text-align:center;font-family:var(--fm);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:14px;}
+.rank-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px;}
+.flip{perspective:1300px;height:250px;cursor:pointer;}
+.flip-in{position:relative;width:100%;height:100%;transition:transform .6s cubic-bezier(.4,.1,.3,1);transform-style:preserve-3d;}
+.flip.flipped .flip-in{transform:rotateY(180deg);}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:10px;border:1px solid var(--border);padding:22px;display:flex;flex-direction:column;overflow:hidden;}
+.flip-front{background:linear-gradient(165deg,var(--surface2),var(--surface));}
+.flip-front.feat{background:linear-gradient(165deg,rgba(0,230,118,0.08),var(--surface2));border-color:var(--green);}
+.flip-front.ace{background:linear-gradient(165deg,#171717,#0a0a0a);border-color:rgba(0,230,118,0.4);box-shadow:inset 0 0 40px rgba(0,230,118,0.05);}
+.flip-back{background:linear-gradient(160deg,#0c120e,#070707);transform:rotateY(180deg);align-items:center;justify-content:center;text-align:center;border-color:var(--green-bd);}
+.flip-back .bpip{width:50px;margin-bottom:12px;filter:drop-shadow(0 0 18px rgba(0,230,118,0.4));}
+.flip-back .bclaim{font-family:var(--fd);font-size:24px;letter-spacing:0.04em;color:var(--green);}
+.flip-back .bsub{font-family:var(--fm);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-top:6px;}
+.frow{display:flex;justify-content:space-between;align-items:flex-start;}
+.fpip{width:26px;}
+.fbadge{font-family:var(--fm);font-size:8px;letter-spacing:0.16em;text-transform:uppercase;padding:3px 8px;border-radius:20px;border:1px solid var(--border);color:var(--muted);}
+.fname{font-family:var(--fd);font-size:25px;letter-spacing:0.03em;line-height:1;margin-top:12px;}
+.ftier{font-family:var(--fm);font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.fdesc{font-size:11px;color:var(--muted);line-height:1.5;}
+.fprice{font-family:var(--fd);font-size:30px;margin-top:auto;}
+.fprice span{font-family:var(--fm);font-size:10px;color:var(--muted);letter-spacing:0.05em;}
+.fhint{font-family:var(--fm);font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:var(--faint);margin-top:8px;}
+.intro-ace{width:60px;opacity:0;filter:drop-shadow(0 0 26px rgba(0,230,118,0.6));}
+.intro-ace.play{animation:aceFlash .38s ease forwards;}
+@keyframes aceFlash{0%{opacity:0;transform:scale(0.6)}60%{opacity:1;transform:scale(1.1)}100%{opacity:1;transform:scale(1)}}
+@media(max-width:820px){.deck-grid{grid-template-columns:1fr;}.rank-row{grid-template-columns:1fr;}.memcard{margin:0 auto;}}
+@media(hover:hover){
+  .flip:hover .flip-in{transform:rotateY(180deg);}
+  .feed-grid,.net-grid{perspective:1400px;}
+  .cardF:hover{transform:translateY(-4px) rotateX(2.5deg) rotateY(-2.5deg);}
+  .net-card:hover{transform:translateY(-4px) rotateX(2deg) rotateY(-2deg);}
+}
 </style>
 </head>
 <body class="lock">
+
+<!-- spade symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<pattern id="scan" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="1.4" y="2.3" fill="rgba(0,0,0,0.22)"/></pattern>
+<clipPath id="spadeClip"><path d="M50 9 C50 9 19 39 19 61 C19 76 30 84 41 81 C44 80 46 78 47 76 C46 90 40 99 32 104 L68 104 C60 99 54 90 53 76 C54 78 56 80 59 81 C70 84 81 76 81 61 C81 39 50 9 50 9 Z"/></clipPath>
+<symbol id="ace" viewBox="0 0 100 120">
+<path d="M50 9 C50 9 19 39 19 61 C19 76 30 84 41 81 C44 80 46 78 47 76 C46 90 40 99 32 104 L68 104 C60 99 54 90 53 76 C54 78 56 80 59 81 C70 84 81 76 81 61 C81 39 50 9 50 9 Z" fill="var(--sf,#070707)" stroke="var(--sk,none)" stroke-width="3"/>
+<g clip-path="url(#spadeClip)"><rect x="0" y="0" width="100" height="120" fill="url(#scan)"/></g>
+<g fill="var(--pf,#F2F2EF)"><rect x="46.5" y="44" width="7" height="26" rx="1.5"/><rect x="37" y="53.5" width="26" height="7" rx="1.5"/></g>
+</symbol>
+<symbol id="pip" viewBox="0 0 100 120"><path d="M50 9 C50 9 19 39 19 61 C19 76 30 84 41 81 C44 80 46 78 47 76 C46 90 40 99 32 104 L68 104 C60 99 54 90 53 76 C54 78 56 80 59 81 C70 84 81 76 81 61 C81 39 50 9 50 9 Z" fill="var(--sf,#070707)" stroke="var(--sk,none)" stroke-width="3"/></symbol>
+</defs></svg>
 
 <!-- INTRO -->
 <div id="intro">
@@ -350,6 +426,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:60px 0
     <div class="intro-tally"><span class="d"></span>ON AIR</div>
     -->
     <div class="intro-logo">AceTV<span>+</span></div>
+    <svg class="intro-ace use-green" id="intro-ace-mark"><use href="#ace"/></svg>
   </div>
   <div class="intro-line"></div>
 </div>
@@ -407,7 +484,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:60px 0
 
 <!-- FEED -->
 <section class="feed" id="feed"><div class="container">
-<div class="shead"><span class="lab">Latest From The Sideline</span><div class="ln"></div><span class="tag">New</span></div>
+<div class="shead"><span class="lab"><svg class="pip-ic use-green"><use href="#pip"/></svg>Latest From The Sideline</span><div class="ln"></div><span class="tag">New</span></div>
 <div class="feed-grid">
 <a class="cardF" href="https://youtube.com/@acetv" target="_blank" rel="noopener" onclick="track('content_click',{slot:'featured'})">
 <div class="cardF-img"><div class="badge">Film Breakdown</div><div class="pl"><svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg></div></div>
@@ -453,39 +530,70 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:60px 0
 <section class="deck" id="deck"><div class="container">
 <div class="deck-grid">
 <div>
-<div class="shead" style="margin-bottom:20px;"><span class="lab">The Community</span><div class="ln"></div></div>
-<h2>JOIN <span class="g">THE DECK.</span></h2>
-<p class="deck-body">Every Ace belongs to a deck. It's the room where sports talk happens without the screaming, where your take gets heard instead of dunked on, and where the whole AceTV+ network comes together.</p>
+<div class="shead" style="margin-bottom:20px;"><span class="lab"><svg class="pip-ic use-green"><use href="#pip"/></svg>The Community</span><div class="ln"></div></div>
+<h2 class="dh">JOIN <span class="g">THE DECK.</span></h2>
+<div class="dealt">You've been dealt in.</div>
+<p class="deck-body">Every Ace belongs to a deck. It's the network-wide table where the talk happens without the screaming, where your take gets heard, and where Sports, Screen, and Laughs all come together. Claim your card and take your seat.</p>
 <ul class="perks">
-<li><div class="pic"><svg viewBox="0 0 12 12" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></div>Free access to every recap, breakdown, and take</li>
-<li><div class="pic"><svg viewBox="0 0 12 12" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></div>The Breakdown newsletter, every week</li>
-<li><div class="pic"><svg viewBox="0 0 12 12" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></div>Discord — real sports talk, zero fandom wars</li>
-<li><div class="pic"><svg viewBox="0 0 12 12" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></div>First in line as Screen and Laughs roll out</li>
+<li><svg class="use-green"><use href="#pip"/></svg>Free access to every recap, breakdown, and take</li>
+<li><svg class="use-green"><use href="#pip"/></svg>The Breakdown newsletter, every week</li>
+<li><svg class="use-green"><use href="#pip"/></svg>Discord, real talk across the whole network</li>
+<li><svg class="use-green"><use href="#pip"/></svg>First in line as Screen and Laughs roll out</li>
 </ul>
-<a href="#" class="btn-green cta-primary" onclick="cap(null,'deck_join')">Join Free →</a>
+<a href="#" class="btn-green cta-primary" onclick="cap(null,'deck_join')">♠ Claim Your Card</a>
 </div>
-<div class="tiers">
-<div class="tier">
-<div class="tier-h"><div class="tier-name">THE DECK</div><div class="tier-price"><div class="tier-amt">$0</div><div class="tier-per">forever</div></div></div>
-<ul><li class="on">Every recap, video, and take</li><li class="on">Weekly newsletter</li><li class="on">Public Discord</li><li>Early access drops</li><li>Exclusive Ace+ episodes</li></ul>
+<div>
+<div class="memcard">
+<div class="mscan"></div><div class="msweep"></div><div class="medge"></div>
+<div class="mcorner tl"><span class="a">A</span><svg class="use-green"><use href="#pip"/></svg></div>
+<div class="mcorner br"><span class="a">A</span><svg class="use-green"><use href="#pip"/></svg></div>
+<div class="mtop"><div class="net">AceTV<span>+</span></div><div class="dk">The Deck</div></div>
+<svg class="mcenter use-green"><use href="#ace"/></svg>
+<div class="mfoot"><div class="tr">ACE OF SPADES</div><div class="fld"><span>DEALT IN · YOUR NAME</span><span>No. 0001</span></div></div>
 </div>
-<div class="tier feat">
-<div class="tier-badge">House Favorite</div>
-<div class="tier-h"><div class="tier-name">ACE OF CLUBS</div><div class="tier-price"><div class="tier-amt">$7</div><div class="tier-per">/ month</div></div></div>
-<ul><li class="on">Everything in The Deck</li><li class="on">Early access, 72hr before public</li><li class="on">Exclusive Ace+ episodes monthly</li><li class="on">Live monthly creator hangout</li><li class="on">Ace+ Discord channels</li></ul>
-<div class="waitnote">Founding members lock $7 for life. Waitlist open now.</div>
-</div>
-<div class="tier">
-<div class="tier-h"><div class="tier-name">ACE OF SPADES</div><div class="tier-price"><div class="tier-amt">$25</div><div class="tier-per">/ month</div></div></div>
-<ul><li class="on">Everything in Ace of Clubs</li><li class="on">Submit topics for coverage</li><li class="on">Monthly group call with the team</li><li class="on">Name in the credits</li></ul>
+<div class="mcap">Every member gets a card</div>
 </div>
 </div>
+
+<div class="rank-row">
+<div class="flip" onclick="this.classList.toggle('flipped')"><div class="flip-in">
+<div class="flip-face flip-front">
+<div class="frow"><svg class="fpip use-greenoutline"><use href="#pip"/></svg><span class="fbadge">Free</span></div>
+<div class="fname">IN THE DECK</div><div class="ftier">The Deck · $0</div>
+<div class="fdesc">You're holding a card. Every recap, take, and the weekly Breakdown, plus the public table on Discord.</div>
+<div class="fprice">$0<span> forever</span></div>
+<div class="fhint">hover to flip ♠</div>
+</div>
+<div class="flip-face flip-back"><svg class="bpip use-green"><use href="#ace"/></svg><div class="bclaim">Claim Your Card</div><div class="bsub">In The Deck · Free</div></div>
+</div></div>
+
+<div class="flip" onclick="this.classList.toggle('flipped')"><div class="flip-in">
+<div class="flip-face flip-front feat">
+<div class="frow"><svg class="fpip use-green"><use href="#pip"/></svg><span class="fbadge">$7 / mo</span></div>
+<div class="fname">FACE CARD</div><div class="ftier">Ace+ · Founding Rate</div>
+<div class="fdesc">Your card levels up. Early access 72 hours early, exclusive episodes, the live monthly hangout, Ace+ channels.</div>
+<div class="fprice">$7<span> / month</span></div>
+<div class="fhint">hover to flip ♠</div>
+</div>
+<div class="flip-face flip-back"><svg class="bpip use-green"><use href="#ace"/></svg><div class="bclaim">Deal Me In</div><div class="bsub">Face Card · Founding Rate</div></div>
+</div></div>
+
+<div class="flip" onclick="this.classList.toggle('flipped')"><div class="flip-in">
+<div class="flip-face flip-front ace">
+<div class="frow"><svg class="fpip use-green"><use href="#ace"/></svg><span class="fbadge">$25 / mo</span></div>
+<div class="fname">ACE OF SPADES</div><div class="ftier">Inner Circle</div>
+<div class="fdesc">Top of the deck. Submit topics, monthly group call with the team, name in the credits, the metal card when it ships.</div>
+<div class="fprice">$25<span> / month</span></div>
+<div class="fhint">hover to flip ♠</div>
+</div>
+<div class="flip-face flip-back"><svg class="bpip use-green"><use href="#ace"/></svg><div class="bclaim">Take The Ace</div><div class="bsub">Inner Circle</div></div>
+</div></div>
 </div>
 </div></section>
 
 <!-- QUOTES -->
 <section class="quotes"><div class="container">
-<div class="shead"><span class="lab">From The Deck</span><div class="ln"></div></div>
+<div class="shead"><span class="lab"><svg class="pip-ic use-green"><use href="#pip"/></svg>From The Deck</span><div class="ln"></div></div>
 <div class="qgrid">
 <div class="quote"><p>"Finally a sports page that doesn't make me pick a side to enjoy the game. This is the one."</p><div class="who">— FOUNDING MEMBER</div></div>
 <div class="quote"><p>"The history breakdowns hit different. I learn something every time and I'm still entertained."</p><div class="who">— THE DECK · DISCORD</div></div>
@@ -572,7 +680,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:60px 0
 
 <!-- FAQ -->
 <section class="faq"><div class="container">
-<div class="shead"><span class="lab">Straight Answers</span><div class="ln"></div></div>
+<div class="shead"><span class="lab"><svg class="pip-ic use-green"><use href="#pip"/></svg>Straight Answers</span><div class="ln"></div></div>
 <div class="faq-grid">
 <div class="faq-item"><h4>What is AceTV+ Sports?</h4><p>A digital sports media brand covering game recaps, sports history, and honest analysis that focuses on the context behind the numbers rather than fandom-driven debate. It's the flagship vertical of the AceTV+ network.</p></div>
 <div class="faq-item"><h4>How is this different from ESPN or Barstool?</h4><p>We refuse the manufactured tribal debate format. AceTV+ loves the game more than the argument, prioritizing history, honest takes, and community over fan-war content built to make you angry.</p></div>
@@ -585,7 +693,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:60px 0
 <footer><div class="container">
 <div class="f-top">
 <div>
-<div class="f-logo">AceTV<span class="plus">+</span></div>
+<div class="f-logo"><svg style="width:22px;display:inline-block;vertical-align:middle;margin-right:6px;" class="use-green"><use href="#ace"/></svg>AceTV<span class="plus">+</span></div>
 <p class="f-tag">A media network for people who love the game and the culture. Sports first. Context always. We're all we got.</p>
 <div class="socials"><a class="soc" href="https://youtube.com/@acetv" target="_blank" rel="noopener">YT</a><a class="soc" href="#">IG</a><a class="soc" href="#">TK</a><a class="soc" href="#">DC</a><a class="soc" href="#">X</a></div>
 </div>
@@ -609,7 +717,10 @@ function track(ev,p){p=p||{};window.dataLayer.push(Object.assign({event:ev,page:
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function done(){ if(intro){intro.classList.add('off'); body.classList.remove('lock'); setTimeout(function(){if(intro)intro.remove();},600);} }
   if(reduce){ if(intro)intro.remove(); body.classList.remove('lock'); }
-  else { setTimeout(done, 2600); }
+  else {
+    setTimeout(function(){ var m=document.getElementById('intro-ace-mark'); if(m) m.classList.add('play'); }, 1800);
+    setTimeout(done, 2200);
+  }
   // safety: never trap the user
   setTimeout(function(){ body.classList.remove('lock'); if(intro&&document.body.contains(intro)){intro.classList.add('off');setTimeout(function(){if(intro)intro.remove();},600);} }, 4000);
 })();
@@ -635,7 +746,7 @@ window.addEventListener('scroll',function(){
 
 // reveal on scroll, with failsafe so nothing stays hidden
 // TV "signal focus" reveal: blurry + lifted, snapping sharp as it enters frame
-var reveals=document.querySelectorAll('.shead,.cardF,.cardS,.tier,.quote,.net-card,.faq-item,.press-in,.mission-q,.mission-b,.deck-grid>div,.nl-in,.net-head,.viewall');
+var reveals=document.querySelectorAll('.shead,.cardF,.cardS,.quote,.net-card,.faq-item,.press-in,.mission-q,.mission-b,.deck-grid>div,.nl-in,.net-head,.viewall,.flip');
 function show(el){el.style.opacity='1';el.style.transform='translateY(0)';el.style.filter='blur(0)';}
 if('IntersectionObserver' in window){
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target);}});},{threshold:0.08});
