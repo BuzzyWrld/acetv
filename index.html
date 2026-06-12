@@ -231,12 +231,12 @@ nav .in{display:flex;align-items:center;justify-content:space-between;height:62p
 .net-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch;}
 .net-card{border-radius:10px;padding:26px;position:relative;overflow:hidden;border:1px solid var(--border);transition:transform .25s,border-color .25s;}
 .net-card:hover{transform:translateY(-4px);}
-.net-card.live{background:linear-gradient(160deg,rgba(0,230,118,0.11),rgba(0,230,118,0.02));border-color:var(--green-bd);}
-.net-card.live:hover{border-color:var(--green);}
-.net-card.red{background:linear-gradient(160deg,rgba(232,35,26,0.08),transparent);}
-.net-card.red:hover{border-color:var(--red);}
-.net-card.yellow{background:linear-gradient(160deg,rgba(255,214,0,0.07),transparent);}
-.net-card.yellow:hover{border-color:var(--yellow);}
+.net-card.live{background:linear-gradient(160deg,rgba(0,230,118,0.11),rgba(0,230,118,0.02));border-color:var(--green-bd);box-shadow:0 0 24px rgba(0,230,118,0.08);}
+.net-card.live:hover{border-color:var(--green);box-shadow:0 0 40px rgba(0,230,118,0.18);}
+.net-card.red{background:linear-gradient(160deg,rgba(232,35,26,0.08),transparent);border-color:var(--red-bd);box-shadow:0 0 24px rgba(232,35,26,0.07);}
+.net-card.red:hover{border-color:var(--red);box-shadow:0 0 40px rgba(232,35,26,0.15);}
+.net-card.yellow{background:linear-gradient(160deg,rgba(255,214,0,0.07),transparent);border-color:var(--yellow-bd);box-shadow:0 0 24px rgba(255,214,0,0.06);}
+.net-card.yellow:hover{border-color:var(--yellow);box-shadow:0 0 40px rgba(255,214,0,0.13);}
 .net-status{position:absolute;top:18px;right:18px;font-family:var(--fm);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;padding:3px 9px;border-radius:20px;}
 .net-status.on{background:var(--green);color:#062B16;font-weight:700;display:flex;align-items:center;gap:6px;}
 .net-status.on .d{width:6px;height:6px;border-radius:50%;background:var(--red);animation:blink 1.2s infinite;}
@@ -540,7 +540,7 @@ svg.use-green,svg.use-white,svg.use-black,svg.use-red,svg.use-yellow,svg.use-gre
 <li><svg class="use-green"><use href="#pip"/></svg>Discord, real talk across the whole network</li>
 <li><svg class="use-green"><use href="#pip"/></svg>First in line as Screen and Laughs roll out</li>
 </ul>
-<a href="#" class="btn-green cta-primary" onclick="cap(null,'deck_join')">♠ Claim Your Card</a>
+<a href="#" class="btn-green cta-primary" style="display:block;width:fit-content;margin:0 auto;" onclick="cap(null,'deck_join')">♠ Claim Your Card</a>
 </div>
 <div>
 <div class="memcard">
