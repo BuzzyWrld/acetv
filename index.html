@@ -223,7 +223,9 @@ nav .in{display:flex;align-items:center;justify-content:space-between;height:62p
 .nl-priv{font-family:var(--fm);font-size:10px;color:var(--muted);letter-spacing:0.04em;}
 
 /* NETWORK (merged: one voice three worlds + what's coming) */
-.network{padding:92px 0;}
+.network{padding:92px 0;background:linear-gradient(180deg,var(--surface),#0c0e0c);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.network::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,230,118,0.07),transparent 65%);top:-40%;left:50%;transform:translateX(-50%);z-index:0;}
+.net-head,.net-grid{position:relative;z-index:1;}
 .net-head{text-align:center;max-width:680px;margin:0 auto 44px;}
 .net-head .eyebrow{display:block;margin-bottom:14px;}
 .net-head h2{font-family:var(--fd);font-size:clamp(42px,5.5vw,66px);line-height:0.96;margin-bottom:14px;}
@@ -601,18 +603,6 @@ svg.use-green,svg.use-white,svg.use-black,svg.use-red,svg.use-yellow,svg.use-gre
 </div>
 </div></section>
 
-<!-- NEWSLETTER -->
-<section class="nl" id="newsletter"><div class="container"><div class="nl-in">
-<span class="nl-lab">The Weekly Drop</span>
-<h2>THE BREAKDOWN.<br>EVERY WEEK.</h2>
-<p>One email. The week in sport with the context the highlight reels skip. No PR, no fandom war, no ads steering the take.</p>
-<div class="nl-form">
-<input type="email" id="nl-email" placeholder="your@email.com">
-<button class="cta-primary" onclick="cap('nl-email','newsletter')">Get The Breakdown →</button>
-</div>
-<p class="nl-priv">No spam. Weekly only. Unsubscribe anytime. GDPR compliant.</p>
-</div></div></section>
-
 <!-- NETWORK (one voice three worlds, merged) -->
 <section class="network" id="network"><div class="container">
 <div class="net-head">
@@ -698,7 +688,7 @@ svg.use-green,svg.use-white,svg.use-black,svg.use-red,svg.use-yellow,svg.use-gre
 <div class="socials"><a class="soc" href="https://youtube.com/@acetv" target="_blank" rel="noopener">YT</a><a class="soc" href="#">IG</a><a class="soc" href="#">TK</a><a class="soc" href="#">DC</a><a class="soc" href="#">X</a></div>
 </div>
 <div><div class="f-ct">Network</div><ul class="f-links"><li><a href="#network">Sports</a></li><li><a href="#network">Screen (on deck)</a></li><li><a href="#network">Laughs (on deck)</a></li><li><a href="https://youtube.com/@acetv" target="_blank" rel="noopener">Watch</a></li></ul></div>
-<div><div class="f-ct">The Deck</div><ul class="f-links"><li><a href="#deck">Join Free</a></li><li><a href="#deck">Ace+ Waitlist</a></li><li><a href="#newsletter">Newsletter</a></li><li><a href="#deck">Discord</a></li></ul></div>
+<div><div class="f-ct">The Deck</div><ul class="f-links"><li><a href="#deck">Join Free</a></li><li><a href="#deck">Ace+ Waitlist</a></li><li><a href="#top">Newsletter</a></li><li><a href="#deck">Discord</a></li></ul></div>
 <div><div class="f-ct">Company</div><ul class="f-links"><li><a href="#network">About</a></li><li><a href="#press">Press Kit</a></li><li><a href="#press">Partnerships</a></li><li><a href="mailto:hello@acetv.plus">Contact</a></li><li><a href="#">Privacy</a></li></ul></div>
 </div>
 <div class="f-bot">
@@ -748,7 +738,7 @@ window.addEventListener('scroll',function(){
 
 // reveal on scroll, with failsafe so nothing stays hidden
 // TV "signal focus" reveal: blurry + lifted, snapping sharp as it enters frame
-var reveals=document.querySelectorAll('.shead,.cardF,.cardS,.quote,.net-card,.faq-item,.press-in,.mission-q,.mission-b,.deck-grid>div,.nl-in,.net-head,.viewall,.flip');
+var reveals=document.querySelectorAll('.shead,.cardF,.cardS,.quote,.net-card,.faq-item,.press-in,.mission-q,.mission-b,.deck-grid>div,.net-head,.viewall,.flip');
 function show(el){el.style.opacity='1';el.style.transform='translateY(0)';el.style.filter='blur(0)';}
 if('IntersectionObserver' in window){
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target);}});},{threshold:0.08});
